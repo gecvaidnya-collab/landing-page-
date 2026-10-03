@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BudgetBuddy — Understand your money. Control your future.</title>
+<style>
+:root{
+  --bg:#F8FBF9; --card:#FFFFFF; --text:#14352F; --muted:#697B75;
+  --primary:#176B5B; --primary2:#14352F; --line:#DCF2EB;
+  --accent:#A0D2C4; --gold:#EEB54A;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+a{text-decoration:none;color:inherit}
+.container{max-width:1120px;margin:auto;padding:0 24px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{font-weight:800;font-size:22px;display:flex;gap:9px;align-items:center}
+.logo-mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:#fff}
+.navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;font-size:14px}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 8px 22px rgba(23,107,91,.18)}
+.btn-light{background:#fff;border:1px solid var(--line)}
+.hero{padding:62px 0 50px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.badge{display:inline-block;background:#DCF2EB;color:#176B5B;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800}
+h1{font-size:58px;line-height:1.02;letter-spacing:-2.5px;margin:18px 0}
+.hero p{font-size:19px;line-height:1.65;color:var(--muted);max-width:620px}
+.actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.dashboard{background:#14352F;border-radius:24px;padding:18px;box-shadow:0 25px 60px rgba(20,53,47,.16)}
+.screen{background:#F8FBF9;border-radius:16px;padding:22px}
+.top{display:flex;justify-content:space-between;color:#697B75;font-size:13px}
+.balance{font-size:31px;font-weight:800;margin:8px 0 18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.stat small{color:var(--muted);display:block}.stat strong{display:block;margin-top:5px}
+.chart{height:130px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:12px;padding:14px}
+.bars{display:flex;height:88px;align-items:end;gap:12px}
+.bar{flex:1;background:linear-gradient(180deg,var(--primary),#A0D2C4);border-radius:7px 7px 2px 2px}
+section{padding:78px 0}
+.section-title{text-align:center;max-width:700px;margin:0 auto 40px}
+.section-title h2{font-size:38px;letter-spacing:-1px;margin:0 0 12px}
+.section-title p{color:var(--muted);line-height:1.6}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:25px}
+.icon{font-size:27px;margin-bottom:14px}
+.card h3{margin:0 0 8px}.card p{color:var(--muted);line-height:1.6;margin:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.num{width:34px;height:34px;border-radius:10px;background:#DCF2EB;color:#176B5B;display:grid;place-items:center;font-weight:800;margin-bottom:15px}
+.ai{background:#14352F;color:#fff;border-radius:25px;padding:48px}
+.ai p{color:#B4D7CD;line-height:1.6}
+.flow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:25px}
+.pill{padding:11px 14px;border:1px solid #2C5A50;border-radius:999px;background:#20483F}
+.arrow{color:#A0D2C4}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.price{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+.price.featured{border:2px solid var(--primary);transform:translateY(-5px)}
+.price h3{margin:0}.price .amount{font-size:34px;font-weight:800;margin:12px 0}.price ul{padding-left:20px;color:var(--muted);line-height:1.9}
+.cta{background:linear-gradient(135deg,#176B5B,#14352F);color:#fff;border-radius:25px;padding:52px;text-align:center}
+.cta p{color:#DCF2EB}
+footer{padding:35px 0;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:850px){
+ .hero{grid-template-columns:1fr}.grid3,.pricing{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}
+ h1{font-size:45px}.navlinks{display:none}
+}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+  <a class="logo" href="#"><span class="logo-mark">₹</span>BudgetBuddy</a>
+  <div class="navlinks">
+    <a href="#solution">Solution</a><a href="#how">How it works</a><a href="#pricing">Pricing</a>
+  </div>
+  <a class="btn btn-primary" href="#pricing">Get Started</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <span class="badge">AI-POWERED PERSONAL FINANCE</span>
+    <h1>Understand your money. Control your future.</h1>
+    <p>BudgetBuddy helps students and young earners track spending, set realistic budgets, build savings goals and turn transaction data into simple, actionable insights.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#solution">Explore BudgetBuddy</a>
+      <a class="btn btn-light" href="#how">See how it works</a>
+    </div>
+  </div>
+  <div class="dashboard">
+    <div class="screen">
+      <div class="top"><span>Good morning! 👋</span><span>This month</span></div>
+      <div class="balance">₹25,000</div>
+      <div class="stats">
+        <div class="stat"><small>Spent</small><strong>₹17,500</strong></div>
+        <div class="stat"><small>Saved</small><strong>₹7,500</strong></div>
+        <div class="stat"><small>Budget</small><strong>On track</strong></div>
+      </div>
+      <div class="chart">
+        <small style="color:#697B75">Spending by category</small>
+        <div class="bars">
+          <div class="bar" style="height:75%"></div><div class="bar" style="height:53%"></div>
+          <div class="bar" style="height:42%"></div><div class="bar" style="height:29%"></div>
+          <div class="bar" style="height:58%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solution">
+  <div class="section-title">
+    <h2>Money management shouldn't feel complicated.</h2>
+    <p>BudgetBuddy brings tracking, budgeting, saving and personalized guidance into one simple experience.</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="icon">📊</div><h3>Smart Tracking</h3><p>Record and categorize expenses in one place and see where your money is going.</p></div>
+    <div class="card"><div class="icon">🤖</div><h3>AI Insights</h3><p>Analyze spending patterns and receive simple recommendations based on your habits.</p></div>
+    <div class="card"><div class="icon">🎯</div><h3>Savings Goals</h3><p>Create goals and monitor progress while connecting them to your budget.</p></div>
+    <div class="card"><div class="icon">📅</div><h3>Budget Planner</h3><p>Set monthly category limits and understand how much you can spend.</p></div>
+    <div class="card"><div class="icon">🔔</div><h3>Spending Alerts</h3><p>Get warnings when spending approaches or exceeds a budget limit.</p></div>
+    <div class="card"><div class="icon">💡</div><h3>Personalized Tips</h3><p>Turn your transaction history into practical suggestions for better financial habits.</p></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="section-title">
+    <h2>From transactions to better decisions.</h2>
+    <p>A simple four-step journey.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>Add Data</h3><p>Enter or import transaction information.</p></div>
+    <div class="step"><div class="num">2</div><h3>Analyze</h3><p>AI categorizes transactions and studies spending patterns.</p></div>
+    <div class="step"><div class="num">3</div><h3>Understand</h3><p>The dashboard shows trends, budgets and goals.</p></div>
+    <div class="step"><div class="num">4</div><h3>Act</h3><p>Receive suggestions and track your progress.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="ai">
+    <h2>AI that explains your spending.</h2>
+    <p>BudgetBuddy is designed to turn raw transaction data into understandable financial decisions.</p>
+    <div class="flow">
+      <span class="pill">Transactions</span><span class="arrow">→</span>
+      <span class="pill">Categorization</span><span class="arrow">→</span>
+      <span class="pill">Trend Detection</span><span class="arrow">→</span>
+      <span class="pill">Budget Analysis</span><span class="arrow">→</span>
+      <span class="pill">Recommendations</span>
+    </div>
+    <p style="margin-top:25px"><strong style="color:#fff">Example:</strong> “Food spending increased 20%. You could save by reducing food delivery.”</p>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-title">
+    <h2>Start free. Upgrade when you need more.</h2>
+    <p>Proposed pricing from the BudgetBuddy Product & Business Strategy.</p>
+  </div>
+  <div class="pricing">
+    <div class="price"><h3>Free</h3><div class="amount">₹0</div><ul><li>Expense tracking</li><li>1 budget per category</li><li>Basic monthly chart</li><li>Ads-free experience</li></ul></div>
+    <div class="price featured"><h3>Plus</h3><div class="amount">₹99<span style="font-size:15px;font-weight:500">/month</span></div><ul><li>Everything in Free</li><li>Savings goals & alerts</li><li>Advanced insights & export</li><li>Unlimited history</li><li>Buddy tips</li></ul></div>
+    <div class="price"><h3>Campus</h3><div class="amount">₹149<span style="font-size:15px;font-weight:500">/student/year</span></div><ul><li>Everything in Plus</li><li>Bulk onboarding</li><li>Financial-literacy content</li><li>Admin dashboard</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Build better money habits.</h2>
+    <p>BudgetBuddy is designed for students, young professionals and freelancers who want a simpler way to manage their money.</p>
+    <a class="btn" style="background:#fff;color:#5142c7;margin-top:12px" href="#pricing">Get Started</a>
+  </div>
+</section>
+
+<footer>BudgetBuddy · AI-Powered Personal Finance & Smart Budgeting Assistant</footer>
+</div>
+</body>
+</html>
